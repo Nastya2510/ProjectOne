@@ -12,11 +12,21 @@ body {
     color: #fff;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
 /* BASE*/
 
 .container-wide {
     margin: 0 auto;
-    width: 1600px;
+    max-width: 1600px;
     padding: 0 50px;
 }
 
@@ -66,25 +76,133 @@ body {
 }
 
 .nav a {
+    position: relative;
     color: #fff;
     text-decoration: none;
     transition: color 0.2s easy-in;
+    padding-bottom: 5px;
 }
 
 .nav a:hover {
     color: #fbd784;
 }
 
+.nav a::after {
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: #fbd784;
+    opacity: 0;
+    transition: all 0.2s ease-in;
+}
+
+.nav a:hover::after {
+    bottom: 0px;
+    opacity: 1;
+}
+
 .account {
+    position: relative;
     color: #fff;
     font-size: 17px;
     font-weight: 700;
     text-decoration: none;
     transition: color 0.2s easy-in;
+    padding-left: 30px;
 }
 
 .account:hover {
     color: #fbd784;
+}
+
+.account::before {
+    display: block;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-image: url('./../img/icons/account.svg');
+    background-size: contain;
+}
+
+/* Здесь делаем меню гамбургер! Будет работать при маленьком разрешении*/
+
+.nav-button {
+    position: relative;
+    z-index: 9;
+    display: none;
+    height: 25px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    background: none;
+}
+
+.nav-button-icon {
+    display: block;
+    position: relative;
+    border: none;
+    background-color: #fff;
+    width: 42px;
+    height: 5px;
+}
+
+.nav-button-icon::before {
+    position: absolute;
+    left: 0px;
+    top: -10px;
+    content: "";
+    display: block;
+    background-color: #fff;
+    width: 42px;
+    height: 5px;
+}
+
+.nav-button-icon::after {
+    position: absolute;
+    left: 0px;
+    bottom: -10px;
+    content: "";
+    display: block;
+    background-color: #fff;
+    width: 42px;
+    height: 5px;
+}
+
+.mobile-nav {
+    /*display: flex;*/
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    height: 100%;
+    padding: 70px 70px 50px 30px;
+    background-color: rgb(11, 29, 39, 0.8);
+}
+
+/* Если нав лежит внутри мобайл нав, то будет свойство блок. Так же и с аккаунт*/
+.mobile-nav .nav,
+.mobile-nav .account {
+    display: block;
+}
+
+.mobile-nav .nav ul {
+    flex-direction: column;
+}
+
+.mobile-nav .nav ul li {
+    margin: 0;
+    margin-bottom: 25px;
 }
 
 /* HERO*/
@@ -260,6 +378,7 @@ body {
     font-size: 18px;
     line-height: 1.222;
     color: #FBD784;
+    text-decoration: none;
 }
 
 .article-read-more::after {
@@ -335,7 +454,7 @@ body {
 .footer-nav li {
     padding: 0;
     margin: 0;
-    margin-bottom: 16px;
+    margin-bottom: 11px;
 }
 
 .footer-nav li:last-child {
@@ -343,8 +462,28 @@ body {
 }
 
 .footer-nav a {
+    position: relative;
     color: #ffffff;
     text-decoration: none;
+    padding-bottom: 5px;
+}
+
+.footer-nav a::after {
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    opacity: 0;
+    transition: all 0.2s ease-in;
+}
+
+.footer-nav a:hover::after {
+    bottom: 0px;
+    opacity: 1;
 }
 
 .footer-nav-tittle {
