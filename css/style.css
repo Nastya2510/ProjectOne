@@ -145,6 +145,11 @@ p {
     background: none;
 }
 
+.nav-button:focus,
+.nav-button:active {
+    outline: none;
+}
+
 .nav-button-icon {
     display: block;
     position: relative;
@@ -174,6 +179,20 @@ p {
     background-color: #fff;
     width: 42px;
     height: 5px;
+}
+
+.nav-button-close .nav-button-icon {
+    background-color: transparent;
+}
+
+.nav-button-close .nav-button-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.nav-button-close .nav-button-icon::after {
+    transform: rotate(-45deg);
+    top: 0;
 }
 
 .mobile-nav {
@@ -216,6 +235,7 @@ p {
     padding-right: 15px;
     text-decoration: none;
     transition: transform 0.5s ease-in;
+    text-shadow: 0px 0px 15px #0009;
 }
 
 .hero:hover {
@@ -306,6 +326,7 @@ p {
     position: relative;
     padding-left: 150px;
     max-width: 782px;
+    margin-right: 20px;
 }
 
 .article-text::before {
@@ -394,6 +415,7 @@ p {
 }
 
 .article-img img {
+    max-width: 100%;
     display: block;
     /*чтобы убрать ненужный отступ вниз*/
 }
@@ -402,6 +424,11 @@ p {
 
 .footer {
     padding-bottom: 120px;
+}
+
+.footer-row {
+    display: flex;
+    justify-content: space-between;
 }
 
 .footer-copyright {
